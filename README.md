@@ -1,16 +1,14 @@
-# LLM-SSCC
+# Separate Source Channel Coding Is Still What You Need: An LLM-based Rethinking
 
-Codes for "Separate Source Channel Coding Is Still What You Need: An LLM-based Rethinking"
-=======
-## Separate Source Channel Coding Is Still What You Need: An LLM-based Rethinking
+This repository, corresponding to the paper https://arxiv.org/abs/2501.04285, demonstrates the use of Large Language Model (LLM) for source coding and Error Correction Code Transformer (ECCT) complemented for channel decoding, which together constitute an LLM-based Separate Source Channel Coding (LLM-SSCC) system, offering superior performance over Joint Source Channel Coding (JSCC) schemes.
 
-Tianqi Ren, Rongpeng Li, Ming-min Zhao, Xianfu Chen, Guangyi Liu, Yang Yang, Zhifeng Zhao and Honggang Zhang
+Note that this is a research project and by definition is unstable. Please write to us if you find something not correct or strange. We are sharing the codes under the condition that reproducing full or part of codes must cite the paper.
 
-This is the implementation of the contributed paper: 
+## Paper
 
-Ren T, Li R, Zhao M, et al. Separate Source Channel Coding Is Still What You Need: An LLM-based Rethinking[J]. arXiv preprint arXiv:2501.04285, 2025.
+- T. Q. Ren, R. P. Li, M. M. Zhao, et al., “Separate source channel coding is still what you need: an LLM-based rethinking,” ZTE Communications, vol. 23, no. 1, pp. 30–44, Mar. 2025. doi: 10.12142/ZTECOM.202501005.
 
-The modules are:
+## Files Overview
 
 1. `compress.py`: The script to compress a text file by the arithmetic encoding algorithm with a pretrained large language model (LLM), e.g. GPT-2.
 2. `dataloader.py`: The DataLoader class for loading the text file.
@@ -22,7 +20,7 @@ The modules are:
 8. `trainer.py`: The Trainer class for updating the model parameters and predicting next-token with a pretrained LLM.
 9. `utils.py`: Utility funtions.
 
----
+## Setup Instructions
 
 ### Requirements
 
@@ -32,37 +30,27 @@ The modules are:
 
 ### Usage
 
-#### [Compress]
+1. **Compress**: To implement source encoding for text data using arithmetic coding combined with LLM for probability estimation.
 
-```python
-python compress.py
-```
+   ```'python
+   python compress.py
+   ```
 
-#### [Transmit through channel and ECCT]
+2. **Transmit through channel and ECCT**: To implement a process where messages undergo channel encoding and are transmitted through channel. The transmitted signals are then processed by ECCT to predict the original codewords.
 
-```python
-python ECCT_forward.py
-```
+   ```python
+   python ECCT_forward.py
+   ```
 
-#### [Decompress]
+3. **Extract message from codeword**: To extract message from codeword predicted by ECCT, obtaining the recovered information.
 
-```python
-python decompress.py
-```
+   ```python
+   python extract_message.py
+   ```
 
----
+4. **Decompress**: To implement source decoding for binary data using arithmetic coding combined with LLM for probability estimation.
 
-### Bibtex
-
-@misc{ren2025separatesourcechannelcoding,
-      title={Separate Source Channel Coding Is Still What You Need: An LLM-based Rethinking}, 
-      author={Tianqi Ren and Rongpeng Li and Ming-min Zhao and Xianfu Chen and Guangyi Liu and Yang Yang and Zhifeng Zhao and Honggang Zhang},
-      year={2025},
-      eprint={2501.04285},
-      archivePrefix={arXiv},
-      primaryClass={cs.IT},
-      url={https://arxiv.org/abs/2501.04285}, 
-}
-
-
+   ```python
+   python decompress.py
+   ```
 
