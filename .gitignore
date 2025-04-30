@@ -1,2 +1,4 @@
 config/model/gpt2/model.safetensors
 config/vocabulary/europarl_data.txt
+config/model/gpt2/model.safetensors
+config/vocabulary/europarl_data.txt
